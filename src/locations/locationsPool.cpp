@@ -1,7 +1,8 @@
 
 
-#define	LOCATIONSPOOL_CPP
 #include "../includes24.h"
+#include <algorithm>
+
 /* rolls up a creature's stats and equipment */
 void makecreature(DeprecatedCreature &cr, short type);
 vector<Location *> location;
@@ -193,11 +194,11 @@ const string LocationsPool::getLocationNameWithGetnameMethod(int cursite, signed
 	return getLocationNameWithGetnameMethod(cursite, a, false);
 }
 
-const string CONST_reviewmode040 = "Away";
+const string CONST_AWAY = "Away";
 const string LocationsPool::getLocationNameWithGetnameMethod(int cursite, signed char a, bool b)const
 {
 	if (cursite == -1) {
-		return CONST_reviewmode040;
+		return CONST_AWAY;
 	}
 	return location[cursite]->getname(a, b);
 }
@@ -1227,7 +1228,7 @@ void moveloot(vector<Item *> &dest, vector<Item *> &source)
 			if (source[l]->get_number() > 1)
 			{
 				s += singleSpace;
-				if (selected[l] > 0) s += tostring(selected[l]) + CONST_locationsPool079;
+				if (selected[l] > 0) s += tostring(selected[l]) + CONST_SLASH;
 				else s += CONST_X_X;
 				s += tostring(source[l]->get_number());
 			}
@@ -1565,7 +1566,7 @@ void printlocation(long loc)
 		set_color_easy(WHITE_ON_BLACK);
 		mvaddstrAlt(6, 1, location[loc]->compound_stores);
 		addstrAlt(CONST_DAILY_RATION);
-		if (location[loc]->compound_stores != 1)addstrAlt(CONST_locationsPool115);
+		if (location[loc]->compound_stores != 1)addstrAlt(CONST_S);
 		set_color_easy(WHITE_ON_BLACK);
 		mvaddstrAlt(6, 30, eaters);
 		addstrAlt(CONST_EATING);
@@ -2080,7 +2081,7 @@ void kidnaptransfer(DeprecatedCreature &cr)
 	makeIntoHostage(newcr);
 	eraseAlt();
 	set_color_easy(WHITE_ON_BLACK_BRIGHT);
-	mvaddstrAlt(0, 0, CONST_locationsPool141);
+	mvaddstrAlt(0, 0, CONST_THE_EDUCATION_OF);
 	addstrAlt(newcr->propername);
 	set_color_easy(WHITE_ON_BLACK);
 	mvaddstrAlt(2, 0, CONST_X_WHAT_NAME_WILL_YOU_USE_FOR_THIS_);

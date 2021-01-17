@@ -11,40 +11,9 @@
 
 	All code released under GNU GPL.
 */
-#ifndef INCLUDES_H_INCLUDED
-#define INCLUDES_H_INCLUDED0
-constexpr auto __USE_MINGW_ANSI_STDIO = 0;
-#include <windows.h>
-#include <io.h> //needed for unlink()
-#include <direct.h>
-#include <ciso646> // alternate keywords included in the ISO C++ standard
-// but not directly supported by Microsoft Visual Studio C++
-#include <iostream>
-#include <fstream>
-#include <vector>
-#include <map>
-#include <algorithm>
-#include <time.h>
+#pragma once
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <stdarg.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <sstream>
-#include <deque>
-#include <queue>
-#include <math.h>
-#include <cstring>
-#include "cmarkup/Markup.h" //For XML.
-#include <locale.h>
-
-#include <mbctype.h>
-
-
-
-
-#include <string.h>
+#include "includes.h"
 
 using namespace std;
 
@@ -191,30 +160,9 @@ template <class Container> inline void delete_and_clear(Container& c1, Container
 			if (c1[i1] == c2[i2]) delete_and_remove(c1, i1, c2, i2);
 }
 
-enum LCSIO_FLAGS
-{
-	LCSIO_PRE_ART = 1, /// Append the given file name to the art directory path.
-	LCSIO_PRE_HOME = 2 /// Append the given file name to the home directory path.
-};
-FILE* LCSOpenFile(const char* filename, const char* mode, int flags);
-bool LCSOpenFileCPP(std::string filename, std::ios_base::openmode mode, int flags, std::fstream &file);
-void LCSCloseFile(FILE* handle);
-void LCSCloseFileCPP(std::fstream &file);
-void LCSDeleteFile(const char* filename, int flags);
-void LCSRenameFile(const char* old_filename, const char* new_filename, int flags);
-//returns a list of all files in homedir with extension .dat
-vector<string> LCSSaveFiles();
-
-void pause_ms(int t);
-void alarmset(int t);
-void alarmwait();
 #define CH_USE_CP437
 
 
-
-#ifndef NDEBUG
-#define NDEBUG
-#endif
 
 
 const int TAB = 9;
@@ -653,7 +601,7 @@ std::string tostring(long i);
 //of the target's current action.
 #include "activityST.h"
 
-int get_associated_attribute(int skill_type);
+//int get_associated_attribute(int skill_type);
 
 
 enum Bouncer_Reject_Reason
@@ -678,7 +626,7 @@ enum Bouncer_Reject_Reason
 
 const string singleDot = ".";
 const string string_sleeper = "Sleeper ";
-#ifdef	MAPSPECIALS_CPP
+//#ifdef	MAPSPECIALS_CPP
 // mapspecials.cpp
 
 #include "../creature/creature.h"
@@ -827,7 +775,7 @@ const string CONST_THE_SQUAD_FINDS_SOME_BODY_ARMOR = "The squad finds some body 
 const string CONST_THE_SQUAD_FINDS_SOME_M4_CARBINES = "The squad finds some M4 Carbines.";
 const string CONST_THE_SQUAD_FINDS_SOME_M16_ASSAULT_RIFLES = "The squad finds some M16 Assault Rifles.";
 const string CONST_JACKPOT_THE_SQUAD_FOUND_A_M249_MACHINE_GUN = "Jackpot! The squad found a M249 Machine Gun!";
-const string CONST_ALARMS_GO_OFF = "Alarms go off!";
+const string CONST_ALARMS_GO_OFF_EXCLAMATION = "Alarms go off!";
 const string CONST_BREAK_IN_YES_OR_NO = "Break in? (Yes or No)";
 const string CONST_YOU_VE_FOUND_THE_ARMORY = "You've found the armory.";
 const string CONST_WOW_IT_S_EMPTY_THAT_SUCKS = "Wow, it's empty.  That sucks.";
@@ -844,7 +792,7 @@ const string CONST_YOU_SEE_SOME_INDUSTRIAL_EQUIPMENT = "You see some industrial 
 const string CONST_YOU_SEE_SOME_TEXTILE_EQUIPMENT = "You see some textile equipment.";
 const string CONST_THE_SQUAD_SPRAYS_LIBERAL_GRAFFITI = "The squad sprays Liberal Graffiti!";
 const string CONST_INCLUDING_A_LIST_OF_GOVERNMENT_BACKERS_OF_THE_CCS = "including a list of government backers of the CCS.";
-const string CONST_mapspecials082 = ",";
+const string CONST_X_SINGLE_COMMA = ",";
 const string CONST_THE_SQUAD_OBTAINS_SENSITIVE_INFORMATION = "The Squad obtains sensitive information";
 const string CONST_HACK_IT_YES_OR_NO = "Hack it? (Yes or No)";
 const string CONST_YOU_VE_FOUND_THE_INTELLIGENCE_SUPERCOMPUTER = "You've found the Intelligence Supercomputer.";
@@ -920,5 +868,5 @@ const string tag_LOOT_CCS_BACKERLIST = "LOOT_CCS_BACKERLIST";
 const string tag_value = "value";
 const string tag_attribute = "attribute";
 const string tag_skill = "skill";
-#endif	//MAPSPECIALS_CPP
-#endif // INCLUDES_H_INCLUDED
+//#endif//MAPSPECIALS_CPP
+//#endif// INCLUDES_H_INCLUDED

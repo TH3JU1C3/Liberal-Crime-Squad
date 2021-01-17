@@ -11,60 +11,30 @@
 
 	All code released under GNU GPL.
 */
-#ifndef INCLUDES_H_INCLUDED
-#define INCLUDES_H_INCLUDED0
-constexpr auto __USE_MINGW_ANSI_STDIO = 0;
-#include <windows.h>
-#include <io.h> //needed for unlink()
-#include <direct.h>
-#include <ciso646> // alternate keywords included in the ISO C++ standard
-// but not directly supported by Microsoft Visual Studio C++
-#include <iostream>
-#include <fstream>
-#include <vector>
-#include <map>
-#include <algorithm>
-#include <time.h>
+#pragma once
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <stdarg.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <sstream>
-#include <deque>
-#include <queue>
-#include <math.h>
-#include <cstring>
-#include "cmarkup/Markup.h" //For XML.
-#include <locale.h>
-
-#include <mbctype.h>
-
-
-
-
-#include <string.h>
+#include "includes.h"
 
 using namespace std;
 
 #include "includesDeprecated.h"
+#include "includesRandom.h"
 //#include "vehicle/vehicletype.h"
 //#include "vehicle/vehicle.h"
 
 
 //just a float that is initialized to 0
-#include "floatZero.h"
+//#include "floatZero.h"
 //Interrogation information for the InterrogationST system, to be
 //dynamically created on capture and deleted when InterrogationST ends,
 //referenced using a pointer typecast into one of the arguments
 //of the target's current action.
 //#include "activityST.h"
 
-int get_associated_attribute(int skill_type);
+//int get_associated_attribute(int skill_type);
 
-#include "includesDeprecatedB.h"
-#ifdef	ENDGAME_CPP
+//#include "includesDeprecatedB.h"
+//#ifdef	ENDGAME_CPP
 // endgame.cpp
 
 const string CONSERVATIVES_HAVE_REMADE_THE_WORLD = "The Conservatives have made the world in their image.";
@@ -96,7 +66,7 @@ const string CONST_A_CONSERVATIVE_COUNTRY = "a Conservative country";
 const string CONST_CONSERVATIVE_COUNTRIES = "Conservative countries";
 const string CONST_BE_DEPORTED_TO = "be deported to ";
 const string CONST_WILL = " will";
-const string CONST_endgame028 = "s";
+const string CONST_S = "s";
 const string CONST_NOT_SERVE_ON_THE_SUPREME_COURT_SAID_FORMER_CITIZEN = "not serve on the Supreme Court.  Said former citizen";
 const string CONST_MAY = " may";
 const string CONST_IN_PARTICULAR_THE_AFOREMENTIONED_FORMER_CITIZEN = "In particular, the aforementioned former citizen";
@@ -191,5 +161,5 @@ extern short lawList[LAWNUM];
 extern short senate[SENATENUM];
 
 fullName generate_long_name(char gender = GENDER_NEUTRAL);
-#endif	//ENDGAME_CPP
-#endif // INCLUDES_H_INCLUDED
+//#endif//ENDGAME_CPP
+//#endif// INCLUDES_H_INCLUDED

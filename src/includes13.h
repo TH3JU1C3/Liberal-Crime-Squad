@@ -11,40 +11,9 @@
 
 	All code released under GNU GPL.
 */
-#ifndef INCLUDES_H_INCLUDED
-#define INCLUDES_H_INCLUDED0
-constexpr auto __USE_MINGW_ANSI_STDIO = 0;
-#include <windows.h>
-#include <io.h> //needed for unlink()
-#include <direct.h>
-#include <ciso646> // alternate keywords included in the ISO C++ standard
-// but not directly supported by Microsoft Visual Studio C++
-#include <iostream>
-#include <fstream>
-#include <vector>
-#include <map>
-#include <algorithm>
-#include <time.h>
+#pragma once
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <stdarg.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <sstream>
-#include <deque>
-#include <queue>
-#include <math.h>
-#include <cstring>
-#include "cmarkup/Markup.h" //For XML.
-#include <locale.h>
-
-#include <mbctype.h>
-
-
-
-
-#include <string.h>
+#include "includes.h"
 
 using namespace std;
 
@@ -196,6 +165,7 @@ enum LCSIO_FLAGS
 	LCSIO_PRE_ART = 1, /// Append the given file name to the art directory path.
 	LCSIO_PRE_HOME = 2 /// Append the given file name to the home directory path.
 };
+#include <iostream>
 FILE* LCSOpenFile(const char* filename, const char* mode, int flags);
 bool LCSOpenFileCPP(std::string filename, std::ios_base::openmode mode, int flags, std::fstream &file);
 void LCSCloseFile(FILE* handle);
@@ -210,11 +180,6 @@ void alarmset(int t);
 void alarmwait();
 #define CH_USE_CP437
 
-
-
-#ifndef NDEBUG
-#define NDEBUG
-#endif
 
 
 const int TAB = 9;
@@ -510,12 +475,12 @@ enum EndTypes
 //of the target's current action.
 #include "activityST.h"
 
-int get_associated_attribute(int skill_type);
+//int get_associated_attribute(int skill_type);
 
 const string singleDot = ".";
 const string singleSpace = " ";
 
-#ifdef	MISCACTIONS_CPP
+//#ifdef	MISCACTIONS_CPP
 
 // miscactions.cpp
 
@@ -642,5 +607,5 @@ vector<file_and_text_collection> misc_activities_text_file_collection = {
 	/*miscactions.cpp*/
 	customText(&was_abused, ACTIVITIES_FOLDER + CONST_WAS_ABUSED_TXT),
 };
-#endif	//MISCACTIONS_CPP
-#endif // INCLUDES_H_INCLUDED
+//#endif//MISCACTIONS_CPP
+//#endif// INCLUDES_H_INCLUDED

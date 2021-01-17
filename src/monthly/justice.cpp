@@ -1,7 +1,5 @@
 
 
-
-#define	JUSTICE_CPP
 #include "../includes21.h"
 /*
 Copyright (c) 2002,2003,2004 by Tarn Adams                                            //
@@ -254,7 +252,7 @@ void penalize(DeprecatedCreature &g, char lenient)
 		if ((g.sentence > 0 && oldsentence > 0) ||
 			(g.sentence < 0 && oldsentence < 0))
 		{
-			addstrAlt(CONST_X_COMMA, gamelog);
+			addstrAlt(CONST_X_SINGLE_COMMA, gamelog);
 			moveAlt(8, 1);
 			if (lenient)
 			{

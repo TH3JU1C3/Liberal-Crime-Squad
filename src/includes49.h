@@ -11,44 +11,16 @@
 
 	All code released under GNU GPL.
 */
-#ifndef INCLUDES_H_INCLUDED
-#define INCLUDES_H_INCLUDED0
-constexpr auto __USE_MINGW_ANSI_STDIO = 0;
-#include <windows.h>
-#include <io.h> //needed for unlink()
-#include <direct.h>
-#include <ciso646> // alternate keywords included in the ISO C++ standard
-// but not directly supported by Microsoft Visual Studio C++
-#include <iostream>
-#include <fstream>
-#include <vector>
-#include <map>
-#include <algorithm>
-#include <time.h>
+#pragma once
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <stdarg.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <sstream>
-#include <deque>
-#include <queue>
-#include <math.h>
-#include <cstring>
-#include "cmarkup/Markup.h" //For XML.
-#include <locale.h>
-
-#include <mbctype.h>
-
-
-
-
-#include <string.h>
+#include "includes.h"
 
 using namespace std;
 
 #include "includesDeprecated.h"
+#include "includesRandom.h"
+/* This is declared again lower down, just needed here for this header. */
+std::string tostring(long i);
 //#include "vehicle/vehicletype.h"
 //#include "vehicle/vehicle.h"
 
@@ -61,10 +33,15 @@ using namespace std;
 //of the target's current action.
 #include "activityST.h"
 
-int get_associated_attribute(int skill_type);
+//int get_associated_attribute(int skill_type);
 
-#include "includesDeprecatedB.h"
-#ifdef	CREATURE_CPP
+
+#include "includesSDS.h"
+#include "includesSDS2.h"
+string showXmlSkill(int skill_, int value_);
+string showXmlAttribute(int attribute_, int value_);
+//#include "includesDeprecatedB.h"
+string skill_enum_to_string(int skill_type);
 // creature.cpp
 
 #include "../creature/creature.h"
@@ -98,8 +75,6 @@ const string HER_LOWERCASE = "her";
 const string THEMSELF_LOWERCASE = "themself";
 const string HERS_LOWERCASE = "hers";
 const string HE_AND_SHE = "heANDshe";
-const string XYR_LOWERCASE = "xyr";
-const string XEM_LOWERCASE = "xem";
 const string CONST_X_QUESTION_MARK = "?";
 const string COMMA_AMBIGUOUS = ", Ambiguous";
 const string CONST_X_FEMALE = ", Female";
@@ -268,5 +243,5 @@ extern short exec[EXECNUM];
 extern long curcreatureid;
 extern UniqueCreatures uniqueCreatures;
 
-#endif	//CREATURE_CPP
-#endif // INCLUDES_H_INCLUDED
+//#endif//CREATURE_CPP
+//#endif// INCLUDES_H_INCLUDED

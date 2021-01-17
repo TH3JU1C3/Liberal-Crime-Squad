@@ -11,38 +11,9 @@
 
 	All code released under GNU GPL.
 */
-#ifndef INCLUDES_H_INCLUDED
-#define INCLUDES_H_INCLUDED0
-constexpr auto __USE_MINGW_ANSI_STDIO = 0;
-#include <windows.h>
-#include <io.h> //needed for unlink()
-#include <direct.h>
-#include <ciso646> // alternate keywords included in the ISO C++ standard
-// but not directly supported by Microsoft Visual Studio C++
-#include <iostream>
-#include <fstream>
-#include <vector>
-#include <map>
-#include <algorithm>
-#include <time.h>
+#pragma once
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <stdarg.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <sstream>
-#include <deque>
-#include <queue>
-#include <math.h>
-#include <cstring>
-#include "cmarkup/Markup.h" //For XML.
-#include <locale.h>
-
-#include <mbctype.h>
-
-
-#include <string.h>
+#include "includes.h"
 
 using namespace std;
 
@@ -123,6 +94,7 @@ enum LCSIO_FLAGS
 	LCSIO_PRE_ART = 1, /// Append the given file name to the art directory path.
 	LCSIO_PRE_HOME = 2 /// Append the given file name to the home directory path.
 };
+#include <iostream>
 FILE* LCSOpenFile(const char* filename, const char* mode, int flags);
 bool LCSOpenFileCPP(std::string filename, std::ios_base::openmode mode, int flags, std::fstream &file);
 void LCSCloseFile(FILE* handle);
@@ -134,11 +106,6 @@ vector<string> LCSSaveFiles();
 
 #define CH_USE_CP437
 
-
-
-#ifndef NDEBUG
-#define NDEBUG
-#endif
 
 const int ESC = 27;
 
@@ -365,9 +332,9 @@ std::string tostring(long i);
 
 
 //just a float that is initialized to 0
-#include "floatZero.h"
+//#include "floatZero.h"
 
-#ifdef	TITLESCREEN_CPP
+//#ifdef	TITLESCREEN_CPP
 // titlescreen.cpp
 #include "../common/commondisplay.h"
 
@@ -406,5 +373,5 @@ void pressAnyKey();
 int getkeyAlt();
 bool is_page_up(const int c);
 bool is_page_down(const int c);
-#endif	//TITLESCREEN_CPP
-#endif // INCLUDES_H_INCLUDED
+//#endif//TITLESCREEN_CPP
+//#endif// INCLUDES_H_INCLUDED
